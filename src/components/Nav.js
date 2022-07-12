@@ -13,6 +13,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 
 const pages = ['Product', 'About Us', 'Contact Us'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -96,14 +98,27 @@ const Nav = () => {
                        
                          
                             <MenuItem key={2} onClick={()=>handleCloseNavMenu('/about')}>
-                                <Typography textAlign="center" >About </Typography>
+                                <Typography sx={{fontSize:'15px', margin:'auto',color: 'black'}} textAlign="center" >About </Typography>
                             </MenuItem>
                             <MenuItem key={3} onClick={()=>handleCloseNavMenu('/contact')}>
-                                <Typography textAlign="center" >Contact </Typography>
+                                <Typography sx={{fontSize:'15px', margin:'auto',color: 'black'}}textAlign="center" >Contact </Typography>
                             </MenuItem>
                             <MenuItem key={1} >
-                           <a href = "https://www.furpaaws.in/blog"><Typography textAlign="center" style={{color:"black"}} >Blog</Typography></a> 
+                           <a href = "https://www.furpaaws.in/blog"><Typography textAlign="center" 
+                             style={{fontSize:'15px', marginRight:'-65px',color: 'black'}}  >Blog</Typography></a> 
                             </MenuItem>
+                            
+                            {totalQuantities ? 
+                            <MenuItem>
+                            <Button sx={{fontSize:'13px', margin:'auto',color: 'black'}}>Register</Button> 
+                            </MenuItem>
+                             :null}
+                           <MenuItem>
+                           <Button   sx={{fontSize:'13px', margin:'auto',color: 'black'}}>Login</Button> 
+                           </MenuItem>
+                       
+                            
+
                     </Menu>
                 </Box>
                 <Typography
@@ -126,14 +141,22 @@ const Nav = () => {
                     <Button onClick={()=>handleCloseNavMenu('/contact')}
                         sx={{fontSize:'16px', my: 2, color: 'black', display: 'block' }}>Contact</Button>
                          <a href="https://www.furpaaws.in/blog">
+                              
+
                    <Button
                         // onClick={()=>handleCloseNavMenu('')}
                         sx={{fontSize:'16px', my: 2, color: 'black', display: 'block','margin-right':'1rem!important' }}>Blog</Button>
                    </a>
+
+                   <Button   sx={{fontSize:'16px', my: 2, color: 'black', display: 'block','margin-right':'1rem!important' }}>Register</Button> 
+                         <Button   sx={{fontSize:'16px', my: 2, color: 'black', display: 'block','margin-right':'1rem!important' }}>Login</Button> 
                 </Box>
 
                 <Box sx={{ flexGrow: 0 }}>
+                  
+                    {/* <Stack direction="row" > */}
                     <Tooltip title="My Cart">
+                   
                         <IconButton  sx={{ p: 0 }}>
                         <Link to="/cart">
                         
@@ -142,8 +165,32 @@ const Nav = () => {
                                     <span>{totalQuantities}</span>
                                 </div>
                             </Link>
+                           
                         </IconButton>
+                     
+
                     </Tooltip>
+                  
+                 {/* <div  className="spacing_nav" style={{padding:'18px'}}> </div>
+                    <Tooltip title="Account">
+                    <IconButton xs={{display:'none'}} >
+                     
+                   
+                <Button>login</Button>
+                <Button>register</Button>
+                    
+                 </IconButton>
+                
+                 
+             </Tooltip>  */}
+            
+             {/* </Stack> */}
+
+
+             
+
+            
+
                     <Menu
                         sx={{ mt: '45px' }}
                         id="menu-appbar"

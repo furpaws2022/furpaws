@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core"
 import Home_body from './Home_body';
 
-const Home = () => {
+const Home = ({user,setLoginUser}) => {
 
     const { products } = useSelector(state => state.ProductsReducer);
 
@@ -15,7 +15,7 @@ const Home = () => {
             <Header />
             <div className="container ">
                 <div className="row">
-
+                <h1>{user && user._id? <button className='accountButton' onClick={()=>setLoginUser({})}>Logout</button>  : <Link to={`/login/`}><button className='accountButton'>login</button></Link>}</h1>
                 <h3  style={{marginTop:'40px',textAlign:'center'}} className="text-1xl font-bold underline">
             Latest Products
     </h3>

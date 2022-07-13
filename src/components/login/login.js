@@ -3,7 +3,7 @@ import "./login.css"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 
-const Login = () => {
+const Login = ({setLoginUser}) => {
 
     const history = useHistory()
 
@@ -23,14 +23,9 @@ const Login = () => {
     const login = () => {
         axios.post("http://localhost:9002/login", user)
         .then(res => {
-
-            //setLoginUser(res.data.user)
-            if(res.data.message === "login successfull")
-            {history.push("/")}
-            else
-            {
-                alert("Incorrect Username/Password");
-            }
+            alert(res.data.message)
+            setLoginUser(res.data.user)
+            history.push("/")
         })
     }
 

@@ -17,21 +17,21 @@ import Register from './components/register/register';
 
 function App() {
 
-  // const [ user, setLoginUser] = useState({})
+  const [ user, setLoginUser] = useState({})
   return (
     <Router>
       <Provider store={store}>
-      
+
      <Nav/>
      <Route path="/" exact>
-      <Home/>
+      <Home user={user} setLoginUser={setLoginUser}/>
      </Route>
      <Route path="/cart" exact component={Cart}/>
      <Route path="/about" exact component={About}/>
      <Route path="/contact" exact component={Contact}/>
      <Route path="/details/:id" exact component={Details}/>
      <Route path="/login" exact>
-              <Login/>
+              <Login setLoginUser={setLoginUser}/>
       </Route>
      <Route path="/register" exact component={Register}/>
      <Footer/>

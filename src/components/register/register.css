@@ -1,0 +1,52 @@
+
+.register {
+    width: 360px;
+    background: #fff;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 10rem;
+    /* border: 1px solid #dddfe2; */
+    /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); */
+    border-radius: 20px;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    
+  
+    
+}
+
+
+
+/* input[type=text]:focus {
+    border: 2px solid  black
+  }
+
+  input[type=password]:focus {
+    border: 2px solid  black
+  } */
+.register > input {
+    /* border-radius: 8px; */
+    /* border: 2px solid #dddfe2; */
+    outline: none;
+    color: #1d2129;
+    margin: 1rem 0;
+    padding: 1rem 0.75rem;
+    width: 92%;
+    font-size: 1rem;
+    border:none;
+    border-bottom: 2px solid;
+}
+
+.register > .button {
+    background: black;
+    border: 1px solid black;
+    color: #fff;
+    font-size: 1.25rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 30px;
+}

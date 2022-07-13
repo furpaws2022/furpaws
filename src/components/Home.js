@@ -7,14 +7,15 @@ import { Grid } from "@material-ui/core"
 import Home_body from './Home_body';
 
 const Home = () => {
+
     const { products } = useSelector(state => state.ProductsReducer);
 
     return (
         <div>
             <Header />
-          
             <div className="container ">
                 <div className="row">
+
                 <h3  style={{marginTop:'40px',textAlign:'center'}} className="text-1xl font-bold underline">
             Latest Products
     </h3>

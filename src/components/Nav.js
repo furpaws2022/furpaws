@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { BsFillBagFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import AppBar from '@mui/material/AppBar';
@@ -16,12 +16,14 @@ import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 
+
+
 const pages = ['Product', 'About Us', 'Contact Us'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 const Nav = () => {
 
+    let ISLOGGED = false;
     const history = useHistory();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -45,7 +47,25 @@ const Nav = () => {
       const handleCloseUserMenu = () => {
           setAnchorElUser(null);
       };
-    
+
+      const handleAccount = ()=>{
+        if(ISLOGGED){
+            history.push('/account')
+        }
+        else{
+            history.push('/login')
+        }
+      }
+    const handleCart = ()=>{
+        if(totalQuantities == 0){
+            alert('Your Cart is empty!!')
+            
+           
+        }
+        else{
+            history.push('/cart')
+        }
+    }
   
     const { totalQuantities } = useSelector(state => state.CartReducer);
     return (
@@ -108,14 +128,8 @@ const Nav = () => {
                              style={{fontSize:'15px', marginRight:'-65px',color: 'black'}}  >Blog</Typography></a> 
                             </MenuItem>
                             
-                            {totalQuantities ? 
-                            <MenuItem>
-                            <Button sx={{fontSize:'13px', margin:'auto',color: 'black'}}>Register</Button> 
-                            </MenuItem>
-                             :null}
-                           <MenuItem>
-                           <Button   sx={{fontSize:'13px', margin:'auto',color: 'black'}}>Login</Button> 
-                           </MenuItem>
+                            
+                           
                        
                             
 
@@ -148,43 +162,46 @@ const Nav = () => {
                         sx={{fontSize:'16px', my: 2, color: 'black', display: 'block','margin-right':'1rem!important' }}>Blog</Button>
                    </a>
 
-                   <Button   sx={{fontSize:'16px', my: 2, color: 'black', display: 'block','margin-right':'1rem!important' }}>Register</Button> 
-                         <Button   sx={{fontSize:'16px', my: 2, color: 'black', display: 'block','margin-right':'1rem!important' }}>Login</Button> 
                 </Box>
 
                 <Box sx={{ flexGrow: 0 }}>
                   
-                    {/* <Stack direction="row" > */}
+                    <Stack direction="row" >
                     <Tooltip title="My Cart">
                    
-                        <IconButton  sx={{ p: 0 }}>
-                        <Link to="/cart">
-                        
+                        <IconButton  sx={{ p: 0 }} onClick={handleCart}>
+                       
                                <div className="basket">
                                     <BsFillBagFill  className="cart-icon" />
                                     <span>{totalQuantities}</span>
                                 </div>
-                            </Link>
+                           
                            
                         </IconButton>
                      
 
                     </Tooltip>
                   
-                 {/* <div  className="spacing_nav" style={{padding:'18px'}}> </div>
+                 <div  className="spacing_nav" style={{padding:'18px'}}> </div>
                     <Tooltip title="Account">
-                    <IconButton xs={{display:'none'}} >
-                     
                    
-                <Button>login</Button>
-                <Button>register</Button>
+                  
+                     
+                    <IconButton xs={{display:'none'}} 
+                    onClick={handleAccount}
+                    
+                    >
+                     
+                  
+                    <Avatar src="/broken-image.jpg" />
                     
                  </IconButton>
                 
-                 
-             </Tooltip>  */}
             
-             {/* </Stack> */}
+                 
+             </Tooltip> 
+            
+             </Stack>
 
 
              
@@ -208,13 +225,8 @@ const Nav = () => {
                         open={Boolean(anchorElUser)}
                         onClose={handleCloseUserMenu}
                     >
-{/*                        
-                            <MenuItem key={4} >
-                                <Typography textAlign="center" sx={{margin:'auto 5px'}}>Logout</Typography>
-                            </MenuItem>
-                            <MenuItem key={5} onClick={()=>handleCloseNavMenu('/mypro')}>
-                                <Typography textAlign="center" sx={{margin:'auto 5px'}}>My Products</Typography>
-                            </MenuItem> */}
+                    
+                            
                     
                     </Menu>
                 </Box>

@@ -3,7 +3,7 @@ import{useSelector,useDispatch}from "react-redux";
 import currencyFormatter from 'currency-formatter';
 import{BsDash,BsPlus}from "react-icons/bs";
 import { BsTrash } from "react-icons/bs";
-import { useHistory} from "react-router-dom"
+import { useHistory,Link} from "react-router-dom"
 
 
 const Cart = () => {
@@ -111,8 +111,11 @@ const history = useHistory();
                   </div>
                   
              <div className="row T_checkout ">
-             <a href="https://rzp.io/l/Dyop7J7xt" class="checkout">Checkout</a>
-             {/* <div className=""><Googlepay/></div> */}
+              <Link to='/checkout'>
+              <div className="checkout">Checkout</div>
+              </Link>
+             
+            
              </div>
                 
                 </div>

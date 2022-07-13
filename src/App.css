@@ -75,6 +75,20 @@ body {
   width: 100%;
 }
 
+.accountButton{
+    margin-left: auto;
+    margin-right: auto;
+  background: #1877f2;
+    border: 1px solid #1877f2;
+    color: #fff;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
 a {
   text-decoration: none;
 
@@ -510,6 +524,103 @@ p{
   display: none;
 }  
 
+/* checkout page */
+
+.C_form{
+  margin-top: 140px;
+}
+.C_row {
+  display: -ms-flexbox; 
+  display: flex;
+  -ms-flex-wrap: wrap; 
+  flex-wrap: wrap;
+  margin: 12px 6px;
+  /* margin-top: 140px;   */
+  
+}
+
+.C_col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  
+}
+
+.C_col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.C_col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.C_col-25,
+.C_col-50,
+.C_col-75 {
+  padding: 0px 16px;
+}
+
+.C_container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  /* border: 1px solid #ccc; */
+  border-radius: 3px;
+  border:none;
+    border-bottom: 2px solid black;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.C_icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.C_btn {
+  background-color: black;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+
+
+span.C_price {
+  float: right;
+  color: black;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .C_row {
+    flex-direction: column-reverse;
+  }
+  .C_col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
 @media(max-width:1000px){
   .A_text_overimage{
    
@@ -754,7 +865,9 @@ p{
   .f_image2{
     display: block;
   }
-  
+  .spacing_nav{
+    display: none;
+  }
 
   /* .footer_image{
    width: 360px;
